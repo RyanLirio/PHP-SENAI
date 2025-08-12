@@ -8,11 +8,18 @@
 </form>
 
 <?php
-
     $nome = $_POST['nome'];
     $qtd = $_POST['qtd'];
-    $price = $_POST['price'];
+    $price = number_format($_POST['price']);
 
+    
 ?>
+<table>
+    <tr>
+        <td><?php echo $nome; ?></td>
+        <td><?php echo $qtd; ?></td>
+        <td><?php echo $price; ?></td>
+    </tr>
+</table>
 
 
