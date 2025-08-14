@@ -2,7 +2,7 @@
     nome: <input type="text" name="nome">
     Preço: <input type="number" name="preco">
     Quantidade: <input type="number" name="quantidade">
-    <input type="submit" value="Gerar Tabuada">
+    <input type="submit" value="Adicionar item">
 </form>
 
 <?php
