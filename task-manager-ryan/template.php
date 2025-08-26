@@ -8,30 +8,36 @@
 </head>
 <body>
     <h1>Task Manager</h1>
-    <form>
+    <form method="post">
         <fieldset>
             <legend>New Task</legend>
             <label>
                 Tarefa:
-                <input type="text" name="name">
+                <input type="text" name="nome">
             </label>
 
             <label>
                 Horario:
-                <input type="time" name="hour">
+                <input type="date" name="prazo">
             </label>
 
             <label>
                 Descrição:
-                <input type="text" name="description">
+                <input type="text" name="descricao">
+            </label>
+
+            <label>
+                Prioridade:
+                <select name="prioridade">
+                    <option value="baixa">Baixa</option>
+                    <option value="media">Média</option>
+                    <option value="alta">Alta</option>
+                </select>
             </label>
 
             <label>
                 Concluida:
-                <input type="radio" name="cocluida" value="sim">
-                Sim
-                <input type="radio" name="cocluida" value="nao">
-                Não
+                <input type="checkbox" name="concluida" value="1">
             </label>
 
             <input type="submit" value="Cadastrar">
@@ -44,27 +50,27 @@
                 <th>Tarefa</th>
                 <th>Descrição</th>
                 <th>Horário</th>
+                <th>Prioridade</th>
                 <th>Concluida</th>
                 <th>Ações</th>
             </tr>
         </thead>
         <tbody>
-        <?php if(isset($task_list)): ?>
-            <?php foreach($task_list as $index => $task): ?>
-                <?php if(isset($task['name']) && trim($task['name']) !== ''): ?>
+        <?php if(isset($lista_tarefas)): ?>
+            <?php foreach($lista_tarefas as $tarefa): ?>
                 <tr>
-                    <td><?php echo htmlspecialchars($task['name']); ?></td>
-                    <td><?php echo htmlspecialchars($task['description']); ?></td>
-                    <td><?php echo htmlspecialchars($task['hour']); ?></td>
-                    <td><?php echo htmlspecialchars($task['concluida']); ?></td>
+                    <td><?php echo htmlspecialchars($tarefa['nome']); ?></td>
+                    <td><?php echo htmlspecialchars($tarefa['descricao']); ?></td>
+                    <td><?php echo traduz_data_para_exibir($tarefa['prazo']); ?></td>
+                    <td><?php echo traduz_prioridade($tarefa['prioridade']); ?></td>
+                    <td><?php echo traduz_concluida($tarefa['concluida']); ?></td>
                     <td>
-                        <form method="get" style="display:inline; border:none;">
-                            <input type="hidden" name="delete" value="<?php echo $index; ?>">
+                        <form method="post" style="display:inline; border:none;">
+                            <input type="hidden" name="delete" value="<?php echo $tarefa['id']; ?>">
                             <input type="submit" value="Excluir">
                         </form>
                     </td>
                 </tr>
-                <?php endif; ?>
             <?php endforeach; ?>
         <?php endif; ?>
         </tbody>
@@ -72,4 +78,3 @@
 </body>
 </html>
 
-      
