@@ -5,11 +5,6 @@
 }
 
 body {
-    background: red !important;
-}
-
-
-body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: #f4f6f8;
     color: #333;
@@ -117,4 +112,8 @@ label{
     justify-content: start;
     background-color: transparent;
     gap: 15px;
+}
+
+.form-td{
+    display: flex;
 }

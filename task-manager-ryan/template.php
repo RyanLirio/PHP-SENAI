@@ -62,7 +62,7 @@
                     <td><?php echo traduz_data_para_exibir($tarefa['prazo']); ?></td>
                     <td><?php echo traduz_prioridade($tarefa['prioridade']); ?></td>
                     <td><?php echo traduz_concluida($tarefa['concluida']); ?></td>
-                    <td>
+                    <td class="form-td">
                         <form method="post" class="form-botoes">
                             <input type="hidden" name="edit" value="<?php echo $tarefa['id']; ?>">
                             <input type="submit" value="Editar">

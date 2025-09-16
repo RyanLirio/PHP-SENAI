@@ -9,6 +9,8 @@ $BdSenha = '123';
 $BdBanco = 'gerenciador';
 //configuração do banco
 
+
+
 $conexao = mysqli_connect($BdServidor, $BdUsuario, $BdSenha, $BdBanco);
 
 if (mysqli_connect_errno()) {//usado pra verificar se a conexão funcionou

@@ -24,6 +24,36 @@
             <input type="submit" name="cadastrar" value="Cadastrar">
         </form>
     </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Produto</th>
+                <th>Preço</th>
+                <th>Quantidade</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <?php foreach($lista_produtos as $produto) : ?>
+            <tbody>
+                <tr>
+                    <td><?php echo htmlspecialchars($produto['nome']); ?></td>
+                    <td><?php echo htmlspecialchars($produto['preco']); ?></td>
+                    <td><?php echo htmlspecialchars($produto['quantidade']); ?></td>
+                    <td style="display: flex;">
+                        <form method="post">
+                            <input type="hidden" name="excluir" value="<?php echo $produto['id']?>">
+                            <input type="submit" value="excluir">
+                        </form>
+                        <form method="post">
+                            <input type="hidden" name="editar" value="<?php echo $produto['id']?>">
+                            <input type="submit" value="Editar">
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        <?php endforeach; ?>
+    </table>
     
 </body>
 </html>
