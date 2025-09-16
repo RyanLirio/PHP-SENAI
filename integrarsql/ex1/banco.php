@@ -19,7 +19,7 @@ if (mysqli_connect_errno()) {//usado pra verificar se a conexão funcionou
 
 function buscar_produto_por_id($conexao, $id) {
     $id = intval($id);
-    $sqlBusca = "SELECT * FROM produto WHERE id = {$id}";
+    $sqlBusca = "SELECT * FROM produtos WHERE id = {$id}";
     $resultado = mysqli_query($conexao, $sqlBusca);
     return mysqli_fetch_assoc($resultado);
 }
@@ -45,12 +45,27 @@ function gravar_produtos($conexao, $produto) {//grava produtos
         (nome, preco, quantidade)
         VALUES
         (
-            '{$produto['nome']}',
-            {$produto['preco']},
-            {$produto['quantidade']}
+            '{$nome}',
+            {$preco},
+            {$quantidade}
         )
     ";
     mysqli_query($conexao, $sqlGravar);
+}
+
+function editar_produto($conexao, $produto) {
+    $id = intval($produto['id']);
+    $preco = intval($produto['preco']);
+    $nome = mysqli_real_escape_string($conexao, $produto['nome']);
+    $quantidade = intval($produto['quantidade']);
+    $sqlEditar = "
+        UPDATE produtos SET
+            nome = '{$nome}',
+            preco = '{$preco}',
+            quantidade = {$quantidade}
+        WHERE id = {$id}
+    ";
+    mysqli_query($conexao, $sqlEditar);
 }
 
 function excluir_produto($conexao, $id) {//exclui produtos

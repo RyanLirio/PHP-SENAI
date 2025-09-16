@@ -9,19 +9,22 @@
     <div>
         <h1>Cadastrar Produtos</h1>
         <form method="post">
+            <?php if (isset($produto_editando) && $produto_editando): ?>
+                <input type="hidden" name="id" value="<?php echo $produto_editando['id']; ?>">
+            <?php endif; ?>
             <label>
                 Nome do produto:
-                <input type="text" name="nome">
+                <input type="text" value="<?php echo isset($produto_editando) && $produto_editando ? htmlspecialchars($produto_editando['nome']) : ''; ?>" name="nome">
             </label>
             <label>
                 Preço unitário:
-                <input type="number" name="preco">
+                <input type="number" value="<?php echo isset($produto_editando) && $produto_editando ? $produto_editando['preco'] : ''; ?>" name="preco">
             </label>
             <label>
                 Quantidade:
-                <input type="number" name="quantidade">
+                <input type="number" value="<?php echo isset($produto_editando) && $produto_editando ? $produto_editando['quantidade'] : ''; ?>" name="quantidade">
             </label>
-            <input type="submit" name="cadastrar" value="Cadastrar">
+            <input type="submit" name="<?php echo isset($produto_editando) && $produto_editando ? 'salvar_edicao' : 'cadastrar'; ?>" value="<?php echo isset($produto_editando) && $produto_editando ? 'Salvar edição' : 'Cadastrar';?>">
         </form>
     </div>
 
@@ -47,7 +50,7 @@
                         </form>
                         <form method="post">
                             <input type="hidden" name="editar" value="<?php echo $produto['id']?>">
-                            <input type="submit" value="Editar">
+                            <input type="submit" value="editar">
                         </form>
                     </td>
                 </tr>

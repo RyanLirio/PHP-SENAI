@@ -9,13 +9,13 @@
 
     <form method="post">
         <label>
-            ID do aluno: <input type="number" name="id" required>
+            ID do aluno: <input type="number" value="<?php isset($produto_editando) && $produto_editando ? $produto_editando['id'] : ''; ?>" name="id" required>
         </label>
         <label>
-            Nome do aluno: <input type="text" name="nome" required>
+            Nome do aluno: <input type="text" value=""<?php isset($produto_editando) && $produto_editando ? htmlspecialchars($produto_editando['nome']) : ''; ?>" name="nome" required>
         </label>
         <label>
-            Idade do aluno: <input type="number" name="idade" required>
+            Idade do aluno: <input type="number" value="<?php isset($produto_editando) && $produto_editando ? $produto_editando['idade'] : ''; ?>" name="idade" required>
         </label>
         <input type="submit" name="enviar" value="Enviar">
     </form>
