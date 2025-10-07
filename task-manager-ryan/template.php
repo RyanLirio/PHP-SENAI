@@ -51,6 +51,7 @@
                 <th>Prioridade</th>
                 <th>Concluida</th>
                 <th>Ações</th>
+                <th>Situação</th>
             </tr>
         </thead>
         <tbody>
@@ -72,6 +73,7 @@
                             <input type="submit" value="Excluir">
                         </form>
                     </td>
+                    <td><?php echo tarefa_atrasada($tarefa['prazo']) ? 'Atrasado' : 'Não atrasado'; ?></td>
                 </tr>
             <?php endforeach; ?>
         <?php endif; ?>

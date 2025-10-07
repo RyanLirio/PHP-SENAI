@@ -1,7 +1,9 @@
-    <?php
+<?php
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 //linhas para explanar os erros
+
+
 
 $BdServidor = '127.0.0.1';
 $BdUsuario = 'ryan_lirio';

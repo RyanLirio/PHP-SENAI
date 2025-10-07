@@ -6,6 +6,7 @@ ini_set('error_reporting', E_ALL);
 
 session_start();
 
+include "ajudantes.php";
 include "banco.php";
 
 $produto_editando = null;
@@ -55,7 +56,9 @@ if (
     gravar_produtos($conexao, $produto);
 }
 
+
+
 $lista_produtos = buscar_produtos($conexao);
 
-include 'template.php';
+include 'template.phzp';
 ?>

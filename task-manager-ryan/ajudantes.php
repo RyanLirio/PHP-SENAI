@@ -54,5 +54,19 @@
         }
         return $data;
     }
+
+    function tarefa_atrasada($data)
+    {
+        if ($data == "" || $data == "0000-00-00") {
+            return false;
+        }
+        $data_atual = strtotime(date('Y-m-d'));
+        $data_tarefa = strtotime($data);
+        if ($data_tarefa >= $data_atual) {
+            return false;
+        }
+        return true;
+    }
+    
     
 ?>
