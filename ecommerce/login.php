@@ -8,7 +8,7 @@
 <body>
     <main>
         <h1>Login</h1>
-        <form action="index.php" method="post">
+        <form action="validar_login.php" method="post">
             <label>
                 Email: <input type="email" name="email" required>
                 Senha: <input type="password" name="senha" required>
