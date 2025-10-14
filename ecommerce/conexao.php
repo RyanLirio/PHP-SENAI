@@ -1,4 +1,5 @@
 <?php
+
 //Vou usar o PDO pra conectar com o banco pois vi que é mais flexivel a migrações e mais seguro em relação a SQL Injections
 $host = '127.0.0.1';
 $dbname = 'ecommerce';
@@ -14,7 +15,5 @@ try {
     // Em caso de erro, exibe a mensagem e para o script
     die("Erro na conexão: " . $e->getMessage());
 }
-
-
 
 ?>
